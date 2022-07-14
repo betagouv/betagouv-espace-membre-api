@@ -13,8 +13,10 @@ export interface Member {
   username: string;
   fullname: string;
   communication_email: string;
+  primary_email: string;
+  secondary_email: string;
   startups: string[];
-  active: Boolean;
+  primary_email_status: string;
   employer: string;
   domaine: Domaine;
 }
