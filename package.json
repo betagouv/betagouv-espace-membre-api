@@ -2,11 +2,13 @@
   "name": "betagouv-espace-membre-api",
   "version": "1.0.0",
   "description": "Api privée pour accéder a certaines donnée de l'espace membre",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "nodemon --watch src -e js,ts,json --exec \"ts-node src/index.ts\"",
     "build": "tsup src/index.ts --format cjs --clean",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .js,.ts",
+    "lint-fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
