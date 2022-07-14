@@ -7,20 +7,21 @@ const MembersController = Router()
 
 const service = new MembersService()
 
-MembersController.get('/', (req: Request, res: Response) => {
+MembersController.get('/', async (req: Request, res: Response) => {
+  const data = await service.findAll()
   return res
     .status(200)
-    .json(service.findAll())
+    .json(data)
 })
 
-MembersController.get('/:username', (req: Request, res: Response) => {
+MembersController.get('/:username', async (req: Request, res: Response) => {
   const username = String(req.params.username)
 
   if (!Number.isInteger(username)) {
     throw new BadRequestException('ID non valide')
   }
 
-  const member = service.findOne(username)
+  const member = await service.findOne(username)
 
   if (!member) {
     throw new NotFoundException('Animal introuvable')
