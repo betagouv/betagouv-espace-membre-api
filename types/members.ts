@@ -10,7 +10,7 @@ export enum Domaine {
 }
   
 export interface Member {
-  id: string;
+  username: string;
   fullname: string;
   communication_email: string;
   startups: string[];

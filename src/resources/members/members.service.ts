@@ -13,6 +13,6 @@ export class MembersService {
    * @param username
    */
   async findOne(username: string): Promise<Member | undefined> {
-    return await db('users').where({ username })
+    return await db('users').where({ username }).first()
   }
 }

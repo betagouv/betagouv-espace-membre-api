@@ -12,22 +12,22 @@ MembersController.get('/', (req, res) => {
     .json(service.findAll())
 })
 
-MembersController.get('/:id', (req, res) => {
-  const id = Number(req.params.id)
+MembersController.get('/:username', (req, res) => {
+  const username = String(req.params.username)
 
-  if (!Number.isInteger(id)) {
+  if (!Number.isInteger(username)) {
     throw new BadRequestException('ID non valide')
   }
 
-  const pet = service.findOne(id)
+  const member = service.findOne(username)
 
-  if (!pet) {
+  if (!member) {
     throw new NotFoundException('Animal introuvable')
   }
 
   return res
     .status(200)
-    .json(pet)
+    .json(member)
 })
 
 export { MembersController }
