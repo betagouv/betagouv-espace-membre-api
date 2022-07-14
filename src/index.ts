@@ -5,12 +5,12 @@ import { config } from '~/config'
 import { MembersController } from '~/resources/members/members.controller'
 import { ExceptionsHandler } from '~/middlewares/exceptions.handler'
 import { UnknownRoutesHandler } from '~/middlewares/unknownRoutes.handler'
-import { Auth } from '~/middlewares/auth.handler'
+import { AuthHandler } from '~/middlewares/auth.handler'
 
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.use(Auth);
+app.use(AuthHandler);
 app.use('/api/members', MembersController)
 app.all('*', UnknownRoutesHandler)
 app.use(ExceptionsHandler)

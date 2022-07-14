@@ -1,4 +1,4 @@
-import { config } from 'dotenv';
+import { config } from '~/config';
 import { NextFunction, Request, Response } from 'express'
 
 /**
@@ -11,7 +11,7 @@ import { NextFunction, Request, Response } from 'express'
  * @see https://expressjs.com/en/guide/error-handling.html
  */
 
-export const ExceptionsHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+export const AuthHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     const bearerHeader = req.headers['authorization'];
     //check if bearer is undefined
     if(typeof bearerHeader !== 'undefined'){
